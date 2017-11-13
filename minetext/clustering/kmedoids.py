@@ -1,6 +1,4 @@
 from random import shuffle
-import minetext.visualization.xy_plot as plotter
-import minetext.visualization.wordcloud_visualization as wc_visualization
 
 
 class Kmedoids(object):
@@ -148,19 +146,3 @@ class Kmedoids(object):
         distance = self.distance_calculator \
             .calculate(document[self.text_field_name], target[self.text_field_name])
         return distance, document
-
-    def generate_xy_elbow_plot(self, elbow_result, save_dir):
-        title = "Elbow method result"
-        xlabel = "K clusters"
-        x = list(elbow_result.keys())
-        ylabel = "Sum of Squared Errors (SSE)"
-        y = list(elbow_result.values())
-        plotter.xy_plot(x, y, xlabel, ylabel, title, save_dir)
-
-    def generate_word_cloud(self, save_dir):
-        corpus = ""
-        for cluster in self.clusters:
-            for document in cluster[self.collection_field]:
-                corpus += " ".join(document[self.text_field_name])
-
-        wc_visualization.generate_word_cloud(corpus, save_dir)
