@@ -96,6 +96,9 @@ class Kmedoids(object):
             if self.clusters[i]["id"] == cluster_id:
                 return self.clusters[i]
         return None
+    
+    def get_clusters(self):
+        return self.clusters
 
     def clustering(self):
         self.setup_environment()
