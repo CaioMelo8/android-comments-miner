@@ -13,7 +13,7 @@ class LevenshteinCalculator(object):
 
         source = np.array(tuple(source))
         target = np.array(tuple(target))
-
+        
         previous_row = np.arange(target.size + 1)
         for s in source:
             current_row = previous_row + 1
@@ -24,7 +24,7 @@ class LevenshteinCalculator(object):
 
             previous_row = current_row
 
-        return previous_row[-1]
+        return previous_row[-1] / len(source)
 
 
 class EuclideanCalculator(object):
