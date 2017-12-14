@@ -1,4 +1,4 @@
-def match_documents(source, target, comparable_field="id"):
+def match_documents(source, target, comparable_field="index"):
     matched_documents = list()
     for document in source:
         for target_document in target:
